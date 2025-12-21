@@ -7944,6 +7944,8 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
                         default:
                             break;
                     }
+
+                    group->SendExistingRollsTo(this, loot, go);
                 }
             }
 
@@ -8130,6 +8132,9 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
                     }
                 }
             }
+
+            if (recipientGroup)
+                recipientGroup->SendExistingRollsTo(this, loot, creature);
 
             // if loot is already skinning loot then don't do anything else
             if (loot->loot_type == LOOT_SKINNING)

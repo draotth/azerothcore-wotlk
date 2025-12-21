@@ -293,6 +293,7 @@ public:
     void SendLootRoll(ObjectGuid SourceGuid, ObjectGuid TargetGuid, uint8 RollNumber, uint8 RollType, const Roll& r, bool autoPass = false);
     void SendLootRollWon(ObjectGuid SourceGuid, ObjectGuid TargetGuid, uint8 RollNumber, uint8 RollType, const Roll& r);
     void SendLootAllPassed(Roll const& roll);
+    void SendExistingRollsTo(Player* player, Loot* loot, WorldObject* lootedObject);
     void SendLooter(Creature* creature, Player* pLooter);
     void GroupLoot(Loot* loot, WorldObject* pLootedObject);
     void NeedBeforeGreed(Loot* loot, WorldObject* pLootedObject);

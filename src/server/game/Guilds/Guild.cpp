@@ -2417,6 +2417,11 @@ void Guild::SetBankTabText(uint8 tabId, std::string_view text)
     }
 }
 
+uint8 Guild::GetPurchasedBankTabCount() const
+{
+    return _GetPurchasedTabsSize();
+}
+
 // Private methods
 void Guild::_CreateNewBankTab()
 {

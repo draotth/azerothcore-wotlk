@@ -515,6 +515,7 @@ void WorldConfig::BuildConfigCache()
     // Respawn
     SetConfigValue<float>(CONFIG_RESPAWN_DYNAMICRATE_CREATURE, "Respawn.DynamicRateCreature", 1.0f);
     SetConfigValue<uint32>(CONFIG_RESPAWN_DYNAMICMINIMUM_CREATURE, "Respawn.DynamicMinimumCreature", 10);
+    SetConfigValue<bool>(CONFIG_RESPAWN_DISABLE_IN_INSTANCES, "Respawn.DisableInInstances", false);
 
     SetConfigValue<float>(CONFIG_RESPAWN_DYNAMICRATE_GAMEOBJECT, "Respawn.DynamicRateGameObject", 1.0f);
     SetConfigValue<uint32>(CONFIG_RESPAWN_DYNAMICMINIMUM_GAMEOBJECT, "Respawn.DynamicMinimumGameObject", 10);

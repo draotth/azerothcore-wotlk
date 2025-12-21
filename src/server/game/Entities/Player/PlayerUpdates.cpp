@@ -1869,26 +1869,36 @@ void Player::UpdateAreaDependentAuras(uint32 newArea)
 
     // Xinef: check controlled auras
     if (!m_Controlled.empty())
-        for (ControlSet::iterator itr = m_Controlled.begin();
-             itr != m_Controlled.end();)
+    {
+        for (ControlSet::iterator itr = m_Controlled.begin(); itr != m_Controlled.end();)
         {
             Unit* controlled = *itr;
             ++itr;
-            if (controlled && !controlled->IsPet())
+
+            // Skip invalid pointers: despawned units, pets (handled elsewhere) or units not in world.
+            if (!controlled || controlled->IsPet() || !controlled->IsInWorld())
+                continue;
+
+            // Make sure the controlled unit has a valid map and we can iterate its auras safely.
+            if (!controlled->FindMap() || controlled->GetOwnedAuras().empty())
+                continue;
+
+            Unit::AuraMap& tAuras = controlled->GetOwnedAuras();
+            for (Unit::AuraMap::iterator auraIter = tAuras.begin(); auraIter != tAuras.end();)
             {
-                Unit::AuraMap& tAuras = controlled->GetOwnedAuras();
-                for (Unit::AuraMap::iterator auraIter = tAuras.begin();
-                     auraIter != tAuras.end();)
+                if (!auraIter->second || !auraIter->second->GetSpellInfo())
                 {
-                    if (auraIter->second->GetSpellInfo()->CheckLocation(
-                            GetMapId(), m_zoneUpdateId, newArea, nullptr) !=
-                        SPELL_CAST_OK)
-                        controlled->RemoveOwnedAura(auraIter);
-                    else
-                        ++auraIter;
+                    controlled->RemoveOwnedAura(auraIter);
+                    continue;
                 }
+
+                if (auraIter->second->GetSpellInfo()->CheckLocation(GetMapId(), m_zoneUpdateId, newArea, this) != SPELL_CAST_OK)
+                    controlled->RemoveOwnedAura(auraIter);
+                else
+                    ++auraIter;
             }
         }
+    }
 
     // some auras applied at subzone enter
     SpellAreaForAreaMapBounds saBounds =

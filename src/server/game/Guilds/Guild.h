@@ -689,6 +689,7 @@ public:
     std::string const& GetName() const { return m_name; }
     std::string const& GetMOTD() const { return m_motd; }
     std::string const& GetInfo() const { return m_info; }
+    uint8 GetPurchasedBankTabCount() const;
 
     bool SetName(std::string_view const& name);
 

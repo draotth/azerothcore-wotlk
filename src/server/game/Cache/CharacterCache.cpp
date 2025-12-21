@@ -336,6 +336,28 @@ uint32 CharacterCache::GetCharacterAccountIdByName(std::string const& name) cons
     return 0;
 }
 
+uint8 CharacterCache::GetCharacterRaceByGuid(ObjectGuid guid) const
+{
+    auto itr = _characterCacheStore.find(guid);
+    if (itr == _characterCacheStore.end())
+    {
+        return 0;
+    }
+
+    return itr->second.Race;
+}
+
+uint8 CharacterCache::GetCharacterGenderByGuid(ObjectGuid guid) const
+{
+    auto itr = _characterCacheStore.find(guid);
+    if (itr == _characterCacheStore.end())
+    {
+        return GENDER_MALE;
+    }
+
+    return itr->second.Sex;
+}
+
 uint8 CharacterCache::GetCharacterLevelByGuid(ObjectGuid guid) const
 {
     auto itr = _characterCacheStore.find(guid);

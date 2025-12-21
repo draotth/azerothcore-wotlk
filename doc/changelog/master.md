@@ -42,12 +42,12 @@ Removed Rate.XP.BattlegroundKill, added one rate config for each bg.
 ### How to upgrade
 
 Delete Rate.XP.BattlegroundKill, and then set all the battlegroundkill rate for each bg.
-Rate.XP.BattlegroundKillAV   = 1
-Rate.XP.BattlegroundKillWSG  = 1
-Rate.XP.BattlegroundKillAB   = 1
-Rate.XP.BattlegroundKillEOTS = 1
-Rate.XP.BattlegroundKillSOTA = 1
-Rate.XP.BattlegroundKillIC   = 1
+Rate.XP.BattlegroundKillAV   = 2
+Rate.XP.BattlegroundKillWSG  = 2
+Rate.XP.BattlegroundKillAB   = 2
+Rate.XP.BattlegroundKillEOTS = 2
+Rate.XP.BattlegroundKillSOTA = 2
+Rate.XP.BattlegroundKillIC   = 2
 
 
 ## 6.0.0-dev.1 | Commit: [de13bf426e162ee10cbd5470cec74122d1d4afa0

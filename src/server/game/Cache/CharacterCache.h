@@ -74,6 +74,8 @@ class AC_GAME_API CharacterCache
         [[nodiscard]] uint32 GetCharacterTeamByGuid(ObjectGuid guid) const;
         [[nodiscard]] uint32 GetCharacterAccountIdByGuid(ObjectGuid guid) const;
         [[nodiscard]] uint32 GetCharacterAccountIdByName(std::string const& name) const;
+        [[nodiscard]] uint8 GetCharacterRaceByGuid(ObjectGuid guid) const;
+        [[nodiscard]] uint8 GetCharacterGenderByGuid(ObjectGuid guid) const;
         [[nodiscard]] uint8 GetCharacterLevelByGuid(ObjectGuid guid) const;
         [[nodiscard]] ObjectGuid::LowType GetCharacterGuildIdByGuid(ObjectGuid guid) const;
         [[nodiscard]] uint32 GetCharacterArenaTeamIdByGuid(ObjectGuid guid, uint8 type) const;

@@ -1,0 +1,465 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff617f640 (LWP 20)]
+[New Thread 0x7ffff597e640 (LWP 21)]
+[New Thread 0x7ffff517d640 (LWP 22)]
+[New Thread 0x7ffff497c640 (LWP 23)]
+[New Thread 0x7ffff417b640 (LWP 24)]
+[New Thread 0x7ffff367a640 (LWP 25)]
+[New Thread 0x7fffba7ff640 (LWP 26)]
+[New Thread 0x7fffb99ff640 (LWP 27)]
+[New Thread 0x7fffb91fe640 (LWP 28)]
+[New Thread 0x7fffb89fd640 (LWP 29)]
+[New Thread 0x7fffb81fc640 (LWP 30)]
+[New Thread 0x7fffa97ff640 (LWP 31)]
+[New Thread 0x7fff845ff640 (LWP 32)]
+[New Thread 0x7fff837ff640 (LWP 33)]
+[New Thread 0x7fff46fff640 (LWP 34)]
+[New Thread 0x7fff461ff640 (LWP 35)]
+[Thread 0x7fff461ff640 (LWP 35) exited]
+[Thread 0x7fff46fff640 (LWP 34) exited]
+[New Thread 0x7fff461ff640 (LWP 36)]
+[New Thread 0x7fff46fff640 (LWP 37)]
+[New Thread 0x7fff3a7ff640 (LWP 38)]
+[New Thread 0x7fff397fd640 (LWP 40)]
+[New Thread 0x7fff39ffe640 (LWP 39)]
+[New Thread 0x7fff38ffc640 (LWP 41)]
+[New Thread 0x7fff387fb640 (LWP 42)]
+[New Thread 0x7fff37ffa640 (LWP 43)]
+[New Thread 0x7fff2fdff640 (LWP 44)]
+[New Thread 0x7fff2f5fe640 (LWP 45)]
+[Thread 0x7fff46fff640 (LWP 37) exited]
+[Thread 0x7fff461ff640 (LWP 36) exited]
+[New Thread 0x7fff461ff640 (LWP 46)]
+[New Thread 0x7fff46fff640 (LWP 47)]
+[Thread 0x7fff3a7ff640 (LWP 38) exited]
+[Thread 0x7fff39ffe640 (LWP 39) exited]
+[Thread 0x7fff387fb640 (LWP 42) exited]
+[Thread 0x7fff397fd640 (LWP 40) exited]
+[Thread 0x7fff37ffa640 (LWP 43) exited]
+[Thread 0x7fff38ffc640 (LWP 41) exited]
+[Thread 0x7fff2f5fe640 (LWP 45) exited]
+[Thread 0x7fff2fdff640 (LWP 44) exited]
+[Thread 0x7fff46fff640 (LWP 47) exited]
+[Thread 0x7fff461ff640 (LWP 46) exited]
+[New Thread 0x7fff46fff640 (LWP 48)]
+[New Thread 0x7fff461ff640 (LWP 49)]
+[Thread 0x7fff461ff640 (LWP 49) exited]
+[Thread 0x7fff46fff640 (LWP 48) exited]
+
+Thread 10 "worldserver" received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0x7fffb91fe640 (LWP 28)]
+Player::UpdateAreaDependentAuras (this=this@entry=0x7fff929d5200, newArea=newArea@entry=4298) at /azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp:1883
+1883	/azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp: No such file or directory.
+#0  Player::UpdateAreaDependentAuras (this=this@entry=0x7fff929d5200, newArea=newArea@entry=4298) at /azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp:1883
+        auraIter = {first = 1109252366, second = 0x421fd037c586f201}
+        tAuras = std::multimap with 67888726981738496 elements<error reading variable: Cannot access memory at address 0xc586dc5dc4019ae5>
+        controlled = 0x7fff5090f000
+        itr = 0x1
+        saBounds = <optimized out>
+#1  0x0000555556c1ce75 in Player::UpdateArea (this=this@entry=0x7fff929d5200, newArea=4298) at /azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp:1232
+        area = <optimized out>
+        areaRestFlag = <optimized out>
+#2  0x0000555556c1b253 in Player::Update (this=0x7fff929d5200, p_time=14) at /azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp:301
+        newzone = <optimized out>
+        newarea = 63334
+        now = 1764638607
+        lastTick = 1764638607
+        pet = <optimized out>
+#3  0x0000555556e60680 in Map::Update (this=0x7fffc4357700, t_diff=0, s_diff=14) at /azerothcore/src/server/game/Maps/Map.cpp:446
+        updater = {<PacketFilter> = {_vptr$PacketFilter = 0x555557d32738 <vtable for MapSessionFilter+16>, m_pSession = 0x7fff9290af00}, <No data fields>}
+        session = <optimized out>
+        player = 0x7fff929d5200
+#4  0x0000555556e7689d in MapUpdateRequest::call (this=0x7fff5d49b800) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:46
+        __ac_metric_stop_watch45 = {_logger = {this = 0x7fff5d49b800}, _startTime = {__d = {__r = 0}}}
+#5  0x0000555556e761a8 in MapUpdater::WorkerThread (this=0x555557f05da0 <MapMgr::instance()::instance+216>) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:186
+        request = 0x7fff500b12f0
+#6  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#7  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#8  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 15 (Thread 0x7fff837ff640 (LWP 33) "worldserver"):
+#0  0x00007ffff6f366ad in select () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff7f3e0eb in ?? () from /lib/x86_64-linux-gnu/libreadline.so.8
+No symbol table info available.
+#2  0x00007ffff7f3e36d in rl_read_key () from /lib/x86_64-linux-gnu/libreadline.so.8
+No symbol table info available.
+#3  0x00007ffff7f22c87 in readline_internal_char () from /lib/x86_64-linux-gnu/libreadline.so.8
+No symbol table info available.
+#4  0x00007ffff7f2bd15 in readline () from /lib/x86_64-linux-gnu/libreadline.so.8
+No symbol table info available.
+#5  0x0000555555cc1c70 in CliThread () at /azerothcore/src/server/apps/worldserver/CommandLine/CliRunnable.cpp:157
+        command = ""
+        command_str = <optimized out>
+        BLANK = 0 '\000'
+#6  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#7  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#8  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 14 (Thread 0x7fff845ff640 (LWP 32) "worldserver"):
+#0  0x00007ffff6f40e9e in epoll_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x0000555555caea0c in boost::asio::detail::epoll_reactor::run (this=0x7fffb52a3140, usec=<optimized out>, ops=...) at /usr/include/boost/asio/detail/impl/epoll_reactor.ipp:471
+        events = {{events = 1, data = {ptr = 0x7fffb52a31b4, fd = -1255525964, u32 = 3039441332, u64 = 140736232829364}}, {events = 32767, data = {ptr = 0x7fff821eea00, fd = -2111903232, u32 = 2183064064, u64 = 140735376452096}}, {events = 570513088, data = {ptr = 0x220156c000007fff, fd = 32767, u32 = 32767, u64 = 2450335054900002815}}, {events = 32767, data = {ptr = 0x7fff220156c0, fd = 570513088, u32 = 570513088, u64 = 140733763901120}}, {events = 570513088, data = {ptr = 0x220156c000007fff, fd = 32767, u32 = 32767, u64 = 2450335054900002815}}, {events = 32767, data = {ptr = 0x7fff2843dec0, fd = 675536576, u32 = 675536576, u64 = 140733868924608}}, {events = 675647296, data = {ptr = 0x510f0e4000007fff, fd = 32767, u32 = 32767, u64 = 5840902909763551231}}, {events = 32767, data = {ptr = 0x7fff220342c0, fd = 570639040, u32 = 570639040, u64 = 140733764027072}}, {events = 675647296, data = {ptr = 0x220342c000007fff, fd = 32767, u32 = 32767, u64 = 2450876014620868607}}, {events = 32767, data = {ptr = 0x7fff220342c0, fd = 570639040, u32 = 570639040, u64 = 140733764027072}}, {events = 675647296, data = {ptr = 0x28458f4000007fff, fd = 32767, u32 = 32767, u64 = 2901883039950864383}}, {events = 32767, data = {ptr = 0x7fff28864ac0, fd = 679889600, u32 = 679889600, u64 = 140733873277632}}, {events = 675647296, data = {ptr = 0x28458f4000007fff, fd = 32767, u32 = 32767, u64 = 2901883039950864383}}, {events = 32767, data = {ptr = 0x7fff220610c0, fd = 570822848, u32 = 570822848, u64 = 140733764210880}}, {events = 675647296, data = {ptr = 0x28864ac000007fff, fd = 32767, u32 = 32767, u64 = 2920103596890554367}}, {events = 32767, data = {ptr = 0x7fff3a89ba40, fd = 982104640, u32 = 982104640, u64 = 140734175492672}}, {events = 982104640, data = {ptr = 0x821eea0000007fff, fd = 32767, u32 = 32767, u64 = 9376188759952883711}}, {events = 32767, data = {ptr = 0x7fff220156c0, fd = 570513088, u32 = 570513088, u64 = 140733763901120}}, {events = 570513088, data = {ptr = 0x220156c000007fff, fd = 32767, u32 = 32767, u64 = 2450335054900002815}}, {events = 32767, data = {ptr = 0x7fff220156c0, fd = 570513088, u32 = 570513088, u64 = 140733763901120}}, {events = 570513088, data = {ptr = 0x3a89ba4000007fff, fd = 32767, u32 = 32767, u64 = 4218107310049886207}}, {events = 32767, data = {ptr = 0x7fff3a89ba40, fd = 982104640, u32 = 982104640, u64 = 140734175492672}}, {events = 982183232, data = {ptr = 0x3a8aed4000007fff, fd = 32767, u32 = 32767, u64 = 4218444860119613439}}, {events = 32767, data = {ptr = 0x7fff3a89ba40, fd = 982104640, u32 = 982104640, u64 = 140734175492672}}, {events = 675536576, data = {ptr = 0x3a86edc000007fff, fd = 32767, u32 = 32767, u64 = 4217319509968584703}}, {events = 32767, data = {ptr = 0x7fff28458f40, fd = 675647296, u32 = 675647296, u64 = 140733869035328}}, {events = 1359941184, data = {ptr = 0x220342c000007fff, fd = 32767, u32 = 32767, u64 = 2450876014620868607}}, {events = 32767, data = {ptr = 0x7fff28458f40, fd = 675647296, u32 = 675647296, u64 = 140733869035328}}, {events = 570639040, data = {ptr = 0x220342c000007fff, fd = 32767, u32 = 32767, u64 = 2450876014620868607}}, {events = 32767, data = {ptr = 0x7fff28458f40, fd = 675647296, u32 = 675647296, u64 = 140733869035328}}, {events = 675647296, data = {ptr = 0x3a89ba4000007fff, fd = 32767, u32 = 32767, u64 = 4218107310049886207}}, {events = 32767, data = {ptr = 0x7fff28864ac0, fd = 679889600, u32 = 679889600, u64 = 140733873277632}}, {events = 982104640, data = {ptr = 0x28458f4000007fff, fd = 32767, u32 = 32767, u64 = 2901883039950864383}}, {events = 32767, data = {ptr = 0x7fff28458f40, fd = 675647296, u32 = 675647296, u64 = 140733869035328}}, {events = 570822848, data = {ptr = 0xbaef99c000007fff, fd = 32767, u32 = 32767, u64 = 13470154060401246207}}, {events = 32767, data = {ptr = 0xe0, fd = 224, u32 = 224, u64 = 224}}, {events = 2, data = {ptr = 0xf737c48300000013, fd = 19, u32 = 19, u64 = 17813922918007046163}}, {events = 32767, data = {ptr = 0xbffd, fd = 49149, u32 = 49149, u64 = 49149}}, {events = 2206642176, data = {ptr = 0xbffd00007fff, fd = 32767, u32 = 32767, u64 = 211093347663871}}, {events = 0, data = {ptr = 0x7fff83a008c0, fd = -2086664000, u32 = 2208303296, u64 = 140735401691328}}, {events = 762320000, data = {ptr = 0x845fbc6400007fff, fd = 32767, u32 = 32767, u64 = 9538549673476784127}}, {events = 32767, data = {ptr = 0x7fff845fc968, fd = -2074097304, u32 = 2220869992, u64 = 140735414258024}}, {events = 2208313768, data = {ptr = 0x845fbb1000007fff, fd = 32767, u32 = 32767, u64 = 9538548213187903487}}, {events = 32767, data = {ptr = 0x7fff845fbb7c, fd = -2074100868, u32 = 2220866428, u64 = 140735414254460}}, {events = 6, data = {ptr = 0xf6d1ecdd00000000, fd = 0, u32 = 0, u64 = 17785256837394726912}}, {events = 32767, data = {ptr = 0x7fff845fbc64, fd = -2074100636, u32 = 2220866660, u64 = 140735414254692}}, {events = 4140939962, data = {ptr = 0x68c0700000007fff, fd = 32767, u32 = 32767, u64 = 7548156120775294975}}, {events = 32767, data = {ptr = 0x7ffff7bb1cd6 <EVP_EncryptFinal_ex+150>, fd = -138732330, u32 = 4156234966, u64 = 140737349622998}}, {events = 0, data = {ptr = 0xc3d4e00000000000, fd = 0, u32 = 0, u64 = 14111149823063228416}}, {events = 3620073619, data = {ptr = 0x301, fd = 769, u32 = 769, u64 = 769}}, {events = 1458876254, data = {ptr = 0x68c0000000005555, fd = 21845, u32 = 21845, u64 = 7548032975472973141}}, {events = 32767, data = {ptr = 0x7fff68c03198, fd = 1757426072, u32 = 1757426072, u64 = 140734950814104}}, {events = 1, data = {ptr = 0x68c0312800000000, fd = 0, u32 = 0, u64 = 7548087023341404160}}, {events = 32767, data = {ptr = 0x7fff845fbb40, fd = -2074100928, u32 = 2220866368, u64 = 140735414254400}}, {events = 14, data = {ptr = 0x7774656e00000000, fd = 0, u32 = 0, u64 = 8607616310932668416}}, {events = 778793583, data = {ptr = 0x65646f63706f, fd = 1868787823, u32 = 1868787823, u64 = 111482039922799}}, {events = 2181073520, data = {ptr = 0x7fff, fd = 32767, u32 = 32767, u64 = 32767}}, {events = 0, data = {ptr = 0x7fff845fbbc0, fd = -2074100800, u32 = 2220866496, u64 = 140735414254528}}, {events = 2220866604, data = {ptr = 0x400007fff, fd = 32767, u32 = 32767, u64 = 17179901951}}, {events = 0, data = {ptr = 0x7ffff6d1ecdd, fd = -154014499, u32 = 4140952797, u64 = 140737334340829}}, {events = 2181074360, data = {ptr = 0xf6d1baba00007fff, fd = 32767, u32 = 32767, u64 = 17785201711489515519}}, {events = 32767, data = {ptr = 0x7fff845fbcfc, fd = -2074100484, u32 = 2220866812, u64 = 140735414254844}}, {events = 4156234966, data = {ptr = 0x7fff, fd = 32767, u32 = 32767, u64 = 32767}}, {events = 0, data = {ptr = 0xd7c5f093c3d4e000, fd = -1009459200, u32 = 3285508096, u64 = 15548097806002872320}}, {events = 1757425976, data = {ptr = 0x845fbcfc00007fff, fd = 32767, u32 = 32767, u64 = 9538550326311813119}}, {events = 32767, data = {ptr = 0x7fff8380d000, fd = -2088710144, u32 = 2206257152, u64 = 140735399645184}}, {events = 2206232592, data = {ptr = 0x253a7d2000007fff, fd = 32767, u32 = 32767, u64 = 2682594104445009919}}, {events = 32767, data = {ptr = 0x7fff68c03138, fd = 1757425976, u32 = 1757425976, u64 = 140734950814008}}, {events = 2220866812, data = {ptr = 0x57239ef200007fff, fd = 32767, u32 = 32767, u64 = 6279037067703910399}}, {events = 21845, data = {ptr = 0x5, fd = 5, u32 = 5, u64 = 5}}, {events = 1757425680, data = {ptr = 0x6400000001, fd = 1, u32 = 1, u64 = 429496729601}}, {events = 5, data = {ptr = 0x7ffff6f42982 <send+130>, fd = -151770750, u32 = 4143196546, u64 = 140737336584578}}, {events = 55, data = {ptr = 0x8382700000000000, fd = 0, u32 = 0, u64 = 9476259711243255808}}, {events = 32767, data = {ptr = 0x37, fd = 55, u32 = 55, u64 = 55}}, {events = 2220870624, data = {ptr = 0x8382700000004000, fd = 16384, u32 = 16384, u64 = 9476259711243272192}}, {events = 32767, data = {ptr = 0x555555cc4b0a <boost::asio::detail::socket_ops::sync_send1(int, unsigned char, void const*, unsigned long, int, boost::system::error_code&)+170>, fd = 1439451914, u32 = 1439451914, u64 = 93825000033034}}, {events = 2220870488, data = {ptr = 0x3700007fff, fd = 32767, u32 = 32767, u64 = 236223234047}}, {events = 0, data = {ptr = 0x7fff845fcbe4, fd = -2074096668, u32 = 2220870628, u64 = 140735414258660}}, {events = 4137683136, data = {ptr = 0xf00007fff, fd = 32767, u32 = 32767, u64 = 64424542207}}, {events = 0, data = {ptr = 0x7fff53498918, fd = 1397328152, u32 = 1397328152, u64 = 140734590716184}}, {events = 2206232592, data = {ptr = 0x68c031e800007fff, fd = 32767, u32 = 32767, u64 = 7548087847975157759}}, {events = 32767, data = {ptr = 0x7fff68c03010, fd = 1757425680, u32 = 1757425680, u64 = 140734950813712}}, {events = 55, data = {ptr = 0x8382700400000000, fd = 0, u32 = 0, u64 = 9476259728423124992}}, {events = 32767, data = {ptr = 0x7fff845fbd00, fd = -2074100480, u32 = 2220866816, u64 = 140735414254848}}, {events = 2206232592, data = {ptr = 0x68c031e800007fff, fd = 32767, u32 = 32767, u64 = 7548087847975157759}}, {events = 32767, data = {ptr = 0x7fff68c03258, fd = 1757426264, u32 = 1757426264, u64 = 140734950814296}}, {events = 2206257200, data = {ptr = 0x8380d00000007fff, fd = 32767, u32 = 32767, u64 = 9475802314406133759}}, {events = 32767, data = {ptr = 0x555556f4907b <WorldSocket::Update()+1147>, fd = 1458868347, u32 = 1458868347, u64 = 93825019449467}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 2206232576, data = {ptr = 0x89e1e0e000007fff, fd = 32767, u32 = 32767, u64 = 9935469505633353727}}, {events = 32767, data = {ptr = 0x7fff88e608c8, fd = -1998190392, u32 = 2296776904, u64 = 140735490164936}}, {events = 2206257153, data = {ptr = 0xf6f0066d00007fff, fd = 32767, u32 = 32767, u64 = 17793729192962064383}}, {events = 32767, data = {ptr = 0x7fff68c03128, fd = 1757425960, u32 = 1757425960, u64 = 140734950813992}}, {events = 2220866960, data = {ptr = 0x8380701000007fff, fd = 32767, u32 = 32767, u64 = 9475696830009343999}}, {events = 32767, data = {ptr = 0x1, fd = 1, u32 = 1, u64 = 1}}, {events = 2313281544, data = {ptr = 0x8380d03000007fff, fd = 32767, u32 = 32767, u64 = 9475802520564563967}}, {events = 32767, data = {ptr = 0x7fff8380d000, fd = -2088710144, u32 = 2206257152, u64 = 140735399645184}}, {events = 1458928425, data = {ptr = 0x57b40de000005555, fd = 21845, u32 = 21845, u64 = 6319691432831505749}}, {events = 21845, data = {ptr = 0x7fff88e608c8, fd = -1998190392, u32 = 2296776904, u64 = 140735490164936}}, {events = 3039441216, data = {ptr = 0x89e1e00800007fff, fd = 32767, u32 = 32767, u64 = 9935468577920417791}}, {events = 32767, data = {ptr = 0x7fff83807020, fd = -2088734688, u32 = 2206232608, u64 = 140735399620640}}, {events = 2206257200, data = {ptr = 0x8380d00000007fff, fd = 32767, u32 = 32767, u64 = 9475802314406133759}}, {events = 32767, data = {ptr = 0x555556f5797c <__gnu_cxx::__ops::_Iter_pred<NetworkThread<WorldSocket>::Update()::{lambda(std::shared_ptr<WorldSocket>)#1}>::operator()<__gnu_cxx::__normal_iterator<std::shared_ptr<WorldSocket>*, std::vector<std::shared_ptr<WorldSocket>, std::allocator<std::shared_ptr<WorldSocket> > > > >(__gnu_cxx::__normal_iterator<std::shared_ptr<WorldSocket>*, std::vector<std::shared_ptr<WorldSocket>, std::allocator<std::shared_ptr<WorldSocket> > > >)+60>, fd = 1458927996, u32 = 1458927996, u64 = 93825019509116}}, {events = 1757425680, data = {ptr = 0x68c0300000007fff, fd = 32767, u32 = 32767, u64 = 7548085752031117311}}, {events = 32767, data = {ptr = 0x7fff89e1e008, fd = -1981685752, u32 = 2313281544, u64 = 140735506669576}}, {events = 2206232608, data = {ptr = 0x8380d00000007fff, fd = 32767, u32 = 32767, u64 = 9475802314406133759}}, {events = 32767, data = {ptr = 0x555556f57af1 <std::__find_if<__gnu_cxx::__normal_iterator<std::shared_ptr<WorldSocket>*, std::vector<std::shared_ptr<WorldSocket>, std::allocator<std::shared_ptr<WorldSocket> > > >, __gnu_cxx::__ops::_Iter_pred<NetworkThread<WorldSocket>::Update()::{lambda(std::shared_ptr<WorldSocket>)#1}> >(__gnu_cxx::__normal_iterator<std::shared_ptr<WorldSocket>*, std::vector<std::shared_ptr<WorldSocket>, std::allocator<std::shared_ptr<WorldSocket> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<WorldSocket>*, std::vector<std::shared_ptr<WorldSocket>, std::allocator<std::shared_ptr<WorldSocket> > > >, __gnu_cxx::__ops::_Iter_pred<NetworkThread<WorldSocket>::Update()::{lambda(std::shared_ptr<WorldSocket>)#1}>, std::random_access_iterator_tag)+225>, fd = 1458928369, u32 = 1458928369, u64 = 93825019509489}}, {events = 2313281544, data = {ptr = 0x89e1e00800007fff, fd = 32767, u32 = 32767, u64 = 9935468577920417791}}, {events = 32767, data = {ptr = 0x7fff845fbf68, fd = -2074099864, u32 = 2220867432, u64 = 140735414255464}}, {events = 0, data = {ptr = 0x8380702000000000, fd = 0, u32 = 0, u64 = 9475696898728787968}}, {events = 32767, data = {ptr = 0x7fff8380d030, fd = -2088710096, u32 = 2206257200, u64 = 140735399645232}}, {events = 2206257152, data = {ptr = 0x56f5785700007fff, fd = 32767, u32 = 32767, u64 = 6266046771613433855}}, {events = 21845, data = {ptr = 0x7fff83807020, fd = -2088734688, u32 = 2206232608, u64 = 140735399620640}}, {events = 2313281544, data = {ptr = 0x845fbf6800007fff, fd = 32767, u32 = 32767, u64 = 9538552989191536639}}, {events = 32767, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 2313281568, data = {ptr = 0x8380d03000007fff, fd = 32767, u32 = 32767, u64 = 9475802520564563967}}, {events = 32767, data = {ptr = 0x7fff8380d000, fd = -2088710144, u32 = 2206257152, u64 = 140735399645184}}, {events = 1458919804, data = {ptr = 0x89e1e00800005555, fd = 21845, u32 = 21845, u64 = 9935468577920406869}}, {events = 32767, data = {ptr = 0x7fff8380d000, fd = -2088710144, u32 = 2206257152, u64 = 140735399645184}}, {events = 2312611840, data = {ptr = 0x56f55fc900007fff, fd = 32767, u32 = 32767, u64 = 6266019773449011199}}, {events = 21845, data = {ptr = 0x7fff845fbe78, fd = -2074100104, u32 = 2220867192, u64 = 140735414255224}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x7fff89e1e008, fd = -1981685752, u32 = 2313281544, u64 = 140735506669576}}, {events = 0, data = {ptr = 0x57b3fa9800000000, fd = 0, u32 = 0, u64 = 6319670232872910848}}, {events = 21845, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 2220867432, data = {ptr = 0x57b3fbd800007fff, fd = 32767, u32 = 32767, u64 = 6319671607262478335}}, {events = 21845, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}}
+        timeout = -1
+        num_events = <optimized out>
+        check_timers = <optimized out>
+#2  0x0000555555cae578 in boost::asio::detail::scheduler::do_run_one (this=this@entry=0x7fff89d7a800, lock=..., this_thread=..., ec=...) at /usr/include/boost/asio/detail/impl/scheduler.ipp:465
+        on_exit = {scheduler_ = 0x7fff89d7a800, lock_ = 0x7fff845fbf68, this_thread_ = 0x7fff845fbf90}
+        o = <optimized out>
+        more_handlers = <optimized out>
+#3  0x0000555555cae211 in boost::asio::detail::scheduler::run (this=0x7fff89d7a800, ec=...) at /usr/include/boost/asio/detail/impl/scheduler.ipp:204
+        this_thread = {<boost::asio::detail::thread_info_base> = {<boost::asio::detail::noncopyable> = {<No data fields>}, reusable_memory_ = {0x0, 0x0, 0x0}, has_pending_exception_ = 0, pending_exception_ = {_M_exception_object = 0x0}}, private_op_queue = {<boost::asio::detail::noncopyable> = {<No data fields>}, front_ = 0x0, back_ = 0x0}, private_outstanding_work = 0}
+        ctx = {<boost::asio::detail::noncopyable> = {<No data fields>}, key_ = 0x7fff89d7a800, value_ = 0x7fff845fbf90, next_ = 0x0}
+        lock = {<boost::asio::detail::noncopyable> = {<No data fields>}, mutex_ = @0x7fff89d7a830, locked_ = false}
+        n = 299242
+#4  0x0000555555cb674d in boost::asio::io_context::run (this=<optimized out>) at /usr/include/boost/asio/impl/io_context.ipp:63
+        ec = {val_ = 0, failed_ = false, cat_ = 0x555557b3fa98 <boost::system::detail::cat_holder<void>::system_category_instance>}
+        s = <optimized out>
+#5  Acore::Asio::IoContext::run (this=this@entry=0x7fff89e1e078) at /azerothcore/src/common/Asio/IoContext.h:38
+No locals.
+#6  0x0000555556f5505e in NetworkThread<WorldSocket>::Run (this=0x7fff89e1e008) at /azerothcore/src/server/shared/Network/NetworkThread.h:184
+No locals.
+#7  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#8  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#9  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 13 (Thread 0x7fffa97ff640 (LWP 31) "worldserver"):
+#0  0x00007ffff6f424cf in accept () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00005555563217cd in boost::asio::detail::socket_ops::call_accept<unsigned int> (s=24, addr=0x0, addrlen=0x0) at /usr/include/boost/asio/detail/impl/socket_ops.ipp:101
+        tmp_addrlen = <optimized out>
+        result = <optimized out>
+#2  boost::asio::detail::socket_ops::accept (s=24, addr=<optimized out>, addrlen=<optimized out>, ec=...) at /usr/include/boost/asio/detail/impl/socket_ops.ipp:116
+        new_s = <optimized out>
+#3  boost::asio::detail::socket_ops::sync_accept (s=24, state=16 '\020', addr=addr@entry=0x0, addrlen=addrlen@entry=0x0, ec=...) at /usr/include/boost/asio/detail/impl/socket_ops.ipp:144
+        new_socket = <optimized out>
+#4  0x0000555556321656 in boost::asio::detail::reactive_socket_service<boost::asio::ip::tcp>::accept<boost::asio::basic_socket<boost::asio::ip::tcp, boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context&>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > > > > (this=<optimized out>, impl=..., peer=..., peer_endpoint=peer_endpoint@entry=0x0, ec=...) at /usr/include/boost/asio/detail/reactive_socket_service.hpp:422
+        new_socket = {<boost::asio::detail::noncopyable> = {<No data fields>}, socket_ = -1463779800}
+        addr_len = 28
+#5  0x0000555556320f48 in boost::asio::basic_socket_acceptor<boost::asio::ip::tcp, boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context&>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > > >::accept<boost::asio::ip::tcp, boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context&>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > > > (this=this@entry=0x7fffa97fbe88, peer=...) at /usr/include/boost/asio/basic_socket_acceptor.hpp:1261
+        ec = {val_ = 0, failed_ = false, cat_ = 0x555557b3fa98 <boost::system::detail::cat_holder<void>::system_category_instance>}
+#6  0x000055555631fe75 in server (io_service=..., port=<optimized out>) at /azerothcore/modules/mod-playerbots/src/PlayerbotCommandServer.cpp:68
+        sock = {px = 0x7fffa8a11000, pn = {pi_ = 0x7fffa8a16000}}
+        t = {thread_info = {px = 0x0, pn = {pi_ = 0x7fffa97fbf10}}}
+        a = {<boost::asio::socket_base> = {static message_peek = 2, static message_out_of_band = 1, static message_do_not_route = 4, static message_end_of_record = 128, static max_listen_connections = 4096}, impl_ = {service_ = 0x7fffa8a05040, implementation_ = {<boost::asio::detail::reactive_socket_service_base::base_implementation_type> = {socket_ = 24, state_ = 16 '\020', reactor_data_ = 0x7fffa8a0e000}, protocol_ = {family_ = 2}}, executor_ = {<boost::asio::execution::detail::any_executor_base> = {object_ = {__data = "\020\277\177\251\377\177\000\000\000\000\000\000\000\000\000", __align = {<No data fields>}}, object_fns_ = 0x555557b401f8 <boost::asio::execution::detail::any_executor_base::object_fns_table<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u> >(std::enable_if<(!is_same<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u>, void>::value)&&(!is_same<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u>, std::shared_ptr<void> >::value), void>::type*)::fns>, target_ = 0x7fffa97fbea8, target_fns_ = 0x555557b40198 <boost::asio::execution::detail::any_executor_base::target_fns_table<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u> >(bool, std::enable_if<!is_same<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u>, void>::value, void>::type*)::fns_with_execute>}, <boost::asio::execution::detail::any_executor_context<boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context &>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > >, boost::asio::execution::detail::supportable_properties<0UL, void (boost::asio::execution::context_as_t<boost::asio::execution_context &>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> >)>::find_context_as_property, void>> = {<No data fields>}, prop_fns_ = 0x555557b40220 <boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context&>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > >::prop_fns_table<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u> >()::fns>}}}
+#7  0x00005555563202f0 in Run () at /azerothcore/modules/mod-playerbots/src/PlayerbotCommandServer.cpp:87
+        io_service = {_impl = {<boost::asio::execution_context> = {<boost::asio::detail::noncopyable> = {<No data fields>}, service_registry_ = 0x7fffa8a05000}, impl_ = @0x7fffa8a06000}}
+        s = {<std::basic_ostream<char, std::char_traits<char> >> = {<std::basic_ios<char, std::char_traits<char> >> = {<std::ios_base> = {<No data fields>}, _M_tie = 0x0, _M_fill = 32 ' ', _M_fill_init = true, _M_streambuf = 0x7fffa97fbfa0, _M_ctype = 0x7ffff73757c0, _M_num_put = 0x7ffff7375750, _M_num_get = 0x7ffff7375760}, _vptr$basic_ostream = 0x555557b3f5e0 <vtable for std::__cxx11::basic_ostringstream<char, std::char_traits<char>, std::allocator<char> >@GLIBCXX_3.4.21+24>}, _M_stringbuf = {<std::basic_streambuf<char, std::char_traits<char> >> = {_vptr$basic_streambuf = 0x555557b3f558 <vtable for std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >@GLIBCXX_3.4.21+16>, _M_in_beg = 0x7fffa8a00010 "ots Command Server on port 8888", _M_in_cur = 0x7fffa8a00010 "ots Command Server on port 8888", _M_in_end = 0x7fffa8a00010 "ots Command Server on port 8888", _M_out_beg = 0x7fffa8a00000 "Starting Playerbots Command Server on port 8888", _M_out_cur = 0x7fffa8a0002f "", _M_out_end = 0x7fffa8a00200 "", _M_buf_locale = <incomplete type>}, _M_mode = std::_S_out, _M_string = "Starting Playerb"}}
+        e = <optimized out>
+#8  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#9  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#10 0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 12 (Thread 0x7fffb81fc640 (LWP 30) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555556e76641 in std::condition_variable::wait<ProducerConsumerQueue<UpdateRequest*>::WaitAndPop(UpdateRequest*&)::{lambda()#1}>(std::unique_lock<std::mutex>&, ProducerConsumerQueue<UpdateRequest*>::WaitAndPop(UpdateRequest*&)::{lambda()#1}) (this=0x555557f05e18 <MapMgr::instance()::instance+336>, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  ProducerConsumerQueue<UpdateRequest*>::WaitAndPop (this=this@entry=0x555557f05da0 <MapMgr::instance()::instance+216>, value=@0x7fffb81f9120: 0x0) at /azerothcore/src/common/Threading/PCQueue.h:76
+        lock = {_M_device = 0x555557f05da0 <MapMgr::instance()::instance+216>, _M_owns = true}
+#4  0x0000555556e7618e in MapUpdater::WorkerThread (this=0x555557f05da0 <MapMgr::instance()::instance+216>) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:182
+        request = 0x0
+#5  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#6  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#7  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 11 (Thread 0x7fffb89fd640 (LWP 29) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555556e76641 in std::condition_variable::wait<ProducerConsumerQueue<UpdateRequest*>::WaitAndPop(UpdateRequest*&)::{lambda()#1}>(std::unique_lock<std::mutex>&, ProducerConsumerQueue<UpdateRequest*>::WaitAndPop(UpdateRequest*&)::{lambda()#1}) (this=0x555557f05e18 <MapMgr::instance()::instance+336>, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  ProducerConsumerQueue<UpdateRequest*>::WaitAndPop (this=this@entry=0x555557f05da0 <MapMgr::instance()::instance+216>, value=@0x7fffb89fa120: 0x0) at /azerothcore/src/common/Threading/PCQueue.h:76
+        lock = {_M_device = 0x555557f05da0 <MapMgr::instance()::instance+216>, _M_owns = true}
+#4  0x0000555556e7618e in MapUpdater::WorkerThread (this=0x555557f05da0 <MapMgr::instance()::instance+216>) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:182
+        request = 0x0
+#5  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#6  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#7  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 10 (Thread 0x7fffb91fe640 (LWP 28) "worldserver"):
+#0  Player::UpdateAreaDependentAuras (this=this@entry=0x7fff929d5200, newArea=newArea@entry=4298) at /azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp:1883
+        auraIter = {first = 1109252366, second = 0x421fd037c586f201}
+        tAuras = std::multimap with 67888726981738496 elements<error reading variable: Cannot access memory at address 0xc586dc5dc4019ae5>
+        controlled = 0x7fff5090f000
+        itr = 0x1
+        saBounds = <optimized out>
+#1  0x0000555556c1ce75 in Player::UpdateArea (this=this@entry=0x7fff929d5200, newArea=4298) at /azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp:1232
+        area = <optimized out>
+        areaRestFlag = <optimized out>
+#2  0x0000555556c1b253 in Player::Update (this=0x7fff929d5200, p_time=14) at /azerothcore/src/server/game/Entities/Player/PlayerUpdates.cpp:301
+        newzone = <optimized out>
+        newarea = 63334
+        now = 1764638607
+        lastTick = 1764638607
+        pet = <optimized out>
+#3  0x0000555556e60680 in Map::Update (this=0x7fffc4357700, t_diff=0, s_diff=14) at /azerothcore/src/server/game/Maps/Map.cpp:446
+        updater = {<PacketFilter> = {_vptr$PacketFilter = 0x555557d32738 <vtable for MapSessionFilter+16>, m_pSession = 0x7fff9290af00}, <No data fields>}
+        session = <optimized out>
+        player = 0x7fff929d5200
+#4  0x0000555556e7689d in MapUpdateRequest::call (this=0x7fff5d49b800) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:46
+        __ac_metric_stop_watch45 = {_logger = {this = 0x7fff5d49b800}, _startTime = {__d = {__r = 0}}}
+#5  0x0000555556e761a8 in MapUpdater::WorkerThread (this=0x555557f05da0 <MapMgr::instance()::instance+216>) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:186
+        request = 0x7fff500b12f0
+#6  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#7  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#8  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 9 (Thread 0x7fffb99ff640 (LWP 27) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555556e76641 in std::condition_variable::wait<ProducerConsumerQueue<UpdateRequest*>::WaitAndPop(UpdateRequest*&)::{lambda()#1}>(std::unique_lock<std::mutex>&, ProducerConsumerQueue<UpdateRequest*>::WaitAndPop(UpdateRequest*&)::{lambda()#1}) (this=0x555557f05e18 <MapMgr::instance()::instance+336>, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  ProducerConsumerQueue<UpdateRequest*>::WaitAndPop (this=this@entry=0x555557f05da0 <MapMgr::instance()::instance+216>, value=@0x7fffb99fc120: 0x0) at /azerothcore/src/common/Threading/PCQueue.h:76
+        lock = {_M_device = 0x555557f05da0 <MapMgr::instance()::instance+216>, _M_owns = true}
+#4  0x0000555556e7618e in MapUpdater::WorkerThread (this=0x555557f05da0 <MapMgr::instance()::instance+216>) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:182
+        request = 0x0
+#5  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#6  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#7  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 8 (Thread 0x7fffba7ff640 (LWP 26) "worldserver"):
+#0  0x00007ffff6f007f8 in clock_nanosleep () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6f05677 in nanosleep () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x00005555569f62fb in std::this_thread::sleep_for<long, std::ratio<1l, 1000l> > (__rtime=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/this_thread_sleep.h:82
+        __ts = {tv_sec = 0, tv_nsec = 20362959}
+        __s = {__r = 0}
+        __ns = {__r = 25000000}
+#3  AuctionHouseWorkerThread::Run (this=0x7fffc608c680) at /azerothcore/src/server/game/AuctionHouse/AuctionHouseSearcher.cpp:48
+No locals.
+#4  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#5  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#6  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 7 (Thread 0x7ffff367a640 (LWP 25) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555557205381 in std::condition_variable::wait<ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}>(std::unique_lock<std::mutex>&, ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}) (this=0x7ffff6848eb8, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  ProducerConsumerQueue<SQLOperation*>::WaitAndPop (this=0x7ffff6848e40, value=@0x7ffff3677120: 0x0) at /azerothcore/src/common/Threading/PCQueue.h:76
+        lock = {_M_device = 0x7ffff6848e40, _M_owns = true}
+#4  0x0000555557205293 in DatabaseWorker::WorkerThread (this=0x7ffff6331d20) at /azerothcore/src/server/database/Database/DatabaseWorker.cpp:43
+        operation = 0x0
+#5  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#6  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#7  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 6 (Thread 0x7ffff417b640 (LWP 24) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555557205381 in std::condition_variable::wait<ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}>(std::unique_lock<std::mutex>&, ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}) (this=0x7ffff6848af8, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  ProducerConsumerQueue<SQLOperation*>::WaitAndPop (this=0x7ffff6848a80, value=@0x7ffff4178120: 0x0) at /azerothcore/src/common/Threading/PCQueue.h:76
+        lock = {_M_device = 0x7ffff6848a80, _M_owns = true}
+#4  0x0000555557205293 in DatabaseWorker::WorkerThread (this=0x7ffff62a3000) at /azerothcore/src/server/database/Database/DatabaseWorker.cpp:43
+        operation = 0x0
+#5  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#6  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#7  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 5 (Thread 0x7ffff497c640 (LWP 23) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555557205381 in std::condition_variable::wait<ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}>(std::unique_lock<std::mutex>&, ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}) (this=0x7ffff6848d38, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  ProducerConsumerQueue<SQLOperation*>::WaitAndPop (this=0x7ffff6848cc0, value=@0x7ffff4979120: 0x0) at /azerothcore/src/common/Threading/PCQueue.h:76
+        lock = {_M_device = 0x7ffff6848cc0, _M_owns = true}
+#4  0x0000555557205293 in DatabaseWorker::WorkerThread (this=0x7ffff69b5f60) at /azerothcore/src/server/database/Database/DatabaseWorker.cpp:43
+        operation = 0x0
+#5  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#6  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#7  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 4 (Thread 0x7ffff517d640 (LWP 22) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555557205381 in std::condition_variable::wait<ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}>(std::unique_lock<std::mutex>&, ProducerConsumerQueue<SQLOperation*>::WaitAndPop(SQLOperation*&)::{lambda()#1}) (this=0x7ffff6848df8, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  ProducerConsumerQueue<SQLOperation*>::WaitAndPop (this=0x7ffff6848d80, value=@0x7ffff517a120: 0x0) at /azerothcore/src/common/Threading/PCQueue.h:76
+        lock = {_M_device = 0x7ffff6848d80, _M_owns = true}
+#4  0x0000555557205293 in DatabaseWorker::WorkerThread (this=0x7ffff627fa20) at /azerothcore/src/server/database/Database/DatabaseWorker.cpp:43
+        operation = 0x0
+#5  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#6  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#7  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 3 (Thread 0x7ffff597e640 (LWP 21) "worldserver"):
+#0  0x00007ffff6f40e9e in epoll_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x0000555555caea0c in boost::asio::detail::epoll_reactor::run (this=0x7ffff6865ee0, usec=<optimized out>, ops=...) at /usr/include/boost/asio/detail/impl/epoll_reactor.ipp:471
+        events = {{events = 4142077520, data = {ptr = 0xeb8872c400007fff, fd = 32767, u32 = 32767, u64 = 16971941381884903423}}, {events = 0, data = {ptr = 0x7ffff597a9e4, fd = -174609948, u32 = 4120357348, u64 = 140737313745380}}, {events = 61743563, data = {ptr = 0xf6e19cc000000000, fd = 0, u32 = 0, u64 = 17789672351537823744}}, {events = 32767, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x5555e47400000000, fd = 0, u32 = 0, u64 = 6149072053111619584}}, {events = 21845, data = {ptr = 0x555555557730, fd = 1431664432, u32 = 1431664432, u64 = 93824992245552}}, {events = 4120357552, data = {ptr = 0xf597aaa000007fff, fd = 32767, u32 = 32767, u64 = 17696800864947175423}}, {events = 32767, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 1, data = {ptr = 0xf00000000, fd = 0, u32 = 0, u64 = 64424509440}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0xeb8872c400000000, fd = 0, u32 = 0, u64 = 16971941381884870656}}, {events = 0, data = {ptr = 0x7ffff597ab40, fd = -174609600, u32 = 4120357696, u64 = 140737313745728}}, {events = 1431692404, data = {ptr = 0xf7ffe65000005555, fd = 21845, u32 = 21845, u64 = 17870255077701211477}}, {events = 32767, data = {ptr = 0x7ffff597aaa0, fd = -174609760, u32 = 4120357536, u64 = 140737313745568}}, {events = 4120357552, data = {ptr = 0xf7fcf21100007fff, fd = 32767, u32 = 32767, u64 = 17869423576327684095}}, {events = 32767, data = {ptr = 0xb, fd = 11, u32 = 11, u64 = 11}}, {events = 4141981328, data = {ptr = 0x500007fff, fd = 32767, u32 = 32767, u64 = 21474869247}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 1, data = {ptr = 0xf7ffe2e000000000, fd = 0, u32 = 0, u64 = 17870251298129969152}}, {events = 32767, data = {ptr = 0x7ffff6e19e90, fd = -152985968, u32 = 4141981328, u64 = 140737335369360}}, {events = 4160742112, data = {ptr = 0x7fff, fd = 32767, u32 = 32767, u64 = 32767}}, {events = 1, data = {ptr = 0x7ffff7ffe650, fd = -134224304, u32 = 4160742992, u64 = 140737354131024}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 4, data = {ptr = 0xffffffff00000000, fd = 0, u32 = 0, u64 = 18446744069414584320}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 4142069960, data = {ptr = 0xf7a2195000007fff, fd = 32767, u32 = 32767, u64 = 17843852504983437311}}, {events = 32767, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 442, data = {ptr = 0xf7ffe2e000000000, fd = 0, u32 = 0, u64 = 17870251298129969152}}, {events = 32767, data = {ptr = 0x555557d46de8 <pthread_cond_wait@got[plt]>, fd = 1473539560, u32 = 1473539560, u64 = 93825034120680}}, {events = 4135812208, data = {ptr = 0xf597b04000007fff, fd = 32767, u32 = 32767, u64 = 17696807049700081663}}, {events = 32767, data = {ptr = 0x7ffff597b0c0, fd = -174608192, u32 = 4120359104, u64 = 140737313747136}}, {events = 4160577393, data = {ptr = 0x500007fff, fd = 32767, u32 = 32767, u64 = 21474869247}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 4142069960, data = {ptr = 0xf6eae83000007fff, fd = 32767, u32 = 32767, u64 = 17792288570736672767}}, {events = 32767, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 4120358768, data = {ptr = 0x7fff, fd = 32767, u32 = 32767, u64 = 32767}}, {events = 0, data = {ptr = 0x7ffff597b018, fd = -174608360, u32 = 4120358936, u64 = 140737313746968}}, {events = 4135812208, data = {ptr = 0xf7fd8dae00007fff, fd = 32767, u32 = 32767, u64 = 17869594674939854847}}, {events = 32767, data = {ptr = 0x2, fd = 2, u32 = 2, u64 = 2}}, {events = 4120359104, data = {ptr = 0xf597b04000007fff, fd = 32767, u32 = 32767, u64 = 17696807049700081663}}, {events = 32767, data = {ptr = 0x7ffff6837c38, fd = -159155144, u32 = 4135812152, u64 = 140737329200184}}, {events = 4135812208, data = {ptr = 0x7fff, fd = 32767, u32 = 32767, u64 = 32767}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x1fa000000000, fd = 0, u32 = 0, u64 = 34772055228416}}, {events = 65535, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}} <repeats 12 times>, {events = 0, data = {ptr = 0xf6903a7000000000, fd = 0, u32 = 0, u64 = 17766764782687354880}}, {events = 32767, data = {ptr = 0x555555ca672f <boost::asio::basic_signal_set<boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context&>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > > >::basic_signal_set<Acore::Asio::IoContext>(Acore::Asio::IoContext&, int, int, std::enable_if<is_convertible<Acore::Asio::IoContext&, boost::asio::execution_context&>::value, void>::type*)+207>, fd = 1439328047, u32 = 1439328047, u64 = 93824999909167}}, {events = 0, data = {ptr = 0x57b3fa0000000000, fd = 0, u32 = 0, u64 = 6319669580037881856}}, {events = 21845, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x7fffffffe588, fd = -6776, u32 = 4294960520, u64 = 140737488348552}}, {events = 4294960528, data = {ptr = 0xf6903a7000007fff, fd = 32767, u32 = 32767, u64 = 17766764782687387647}}, {events = 32767, data = {ptr = 0xf, fd = 15, u32 = 15, u64 = 15}}, {events = 2, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}} <repeats 18 times>, {events = 0, data = {ptr = 0x2, fd = 2, u32 = 2, u64 = 2}}, {events = 14, data = {ptr = 0x80000000, fd = -2147483648, u32 = 2147483648, u64 = 2147483648}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}} <repeats 12 times>, {events = 0, data = {ptr = 0x7ffff6eac122, fd = -152387294, u32 = 4142580002, u64 = 140737335968034}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 393, data = {ptr = 0x7ffff6837c9c, fd = -159155044, u32 = 4135812252, u64 = 140737329200284}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x7ffff6837c94, fd = -159155052, u32 = 4135812244, u64 = 140737329200276}}, {events = 0, data = {ptr = 0xf6eae93400000000, fd = 0, u32 = 0, u64 = 17792289687428136960}}, {events = 32767, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 1, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 1, data = {ptr = 0x7ffff6837c84, fd = -159155068, u32 = 4135812228, u64 = 140737329200260}}, {events = 4135812208, data = {ptr = 0xf6837c3800007fff, fd = 32767, u32 = 32767, u64 = 17763177935239413759}}, {events = 32767, data = {ptr = 0x7ffff597af20, fd = -174608608, u32 = 4120358688, u64 = 140737313746720}}, {events = 0, data = {ptr = 0xf597af0000000000, fd = 0, u32 = 0, u64 = 17696805675310514176}}, {events = 32767, data = {ptr = 0x1, fd = 1, u32 = 1, u64 = 1}}, {events = 4142589728, data = {ptr = 0xf597af2000007fff, fd = 32767, u32 = 32767, u64 = 17696805812749500415}}, {events = 32767, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 0, data = {ptr = 0x300000000, fd = 0, u32 = 0, u64 = 12884901888}}, {events = 0, data = {ptr = 0x7ffff6837c70, fd = -159155088, u32 = 4135812208, u64 = 140737329200240}}, {events = 4135812152, data = {ptr = 0x7fff, fd = 32767, u32 = 32767, u64 = 32767}}, {events = 0, data = {ptr = 0x0, fd = 0, u32 = 0, u64 = 0}}, {events = 3285508096, data = {ptr = 0xd7c5f093, fd = -674893677, u32 = 3620073619, u64 = 3620073619}}, {events = 0, data = {ptr = 0x7ffff6837c00, fd = -159155200, u32 = 4135812096, u64 = 140737329200128}}}
+        timeout = -1
+        num_events = <optimized out>
+        check_timers = <optimized out>
+#2  0x0000555555cae578 in boost::asio::detail::scheduler::do_run_one (this=this@entry=0x7ffff6837c00, lock=..., this_thread=..., ec=...) at /usr/include/boost/asio/detail/impl/scheduler.ipp:465
+        on_exit = {scheduler_ = 0x7ffff6837c00, lock_ = 0x7ffff597b018, this_thread_ = 0x7ffff597b040}
+        o = <optimized out>
+        more_handlers = <optimized out>
+#3  0x0000555555cae211 in boost::asio::detail::scheduler::run (this=0x7ffff6837c00, ec=...) at /usr/include/boost/asio/detail/impl/scheduler.ipp:204
+        this_thread = {<boost::asio::detail::thread_info_base> = {<boost::asio::detail::noncopyable> = {<No data fields>}, reusable_memory_ = {0x0, 0x0, 0x0}, has_pending_exception_ = 0, pending_exception_ = {_M_exception_object = 0x0}}, private_op_queue = {<boost::asio::detail::noncopyable> = {<No data fields>}, front_ = 0x0, back_ = 0x0}, private_outstanding_work = 0}
+        ctx = {<boost::asio::detail::noncopyable> = {<No data fields>}, key_ = 0x7ffff6837c00, value_ = 0x7ffff597b040, next_ = 0x0}
+        lock = {<boost::asio::detail::noncopyable> = {<No data fields>}, mutex_ = @0x7ffff6837c30, locked_ = false}
+        n = 0
+#4  0x0000555555cb674d in boost::asio::io_context::run (this=<optimized out>) at /usr/include/boost/asio/impl/io_context.ipp:63
+        ec = {val_ = 0, failed_ = false, cat_ = 0x555557b3fa98 <boost::system::detail::cat_holder<void>::system_category_instance>}
+        s = <optimized out>
+#5  Acore::Asio::IoContext::run (this=<optimized out>) at /azerothcore/src/common/Asio/IoContext.h:38
+No locals.
+#6  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#7  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#8  0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 2 (Thread 0x7ffff617f640 (LWP 20) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555555cae503 in boost::asio::detail::posix_event::wait<boost::asio::detail::conditionally_enabled_mutex::scoped_lock> (this=0x7ffff6837c70, lock=...) at /usr/include/boost/asio/detail/posix_event.hpp:119
+No locals.
+#3  boost::asio::detail::conditionally_enabled_event::wait (this=0x7ffff6837c68, lock=...) at /usr/include/boost/asio/detail/conditionally_enabled_event.hpp:97
+No locals.
+#4  boost::asio::detail::scheduler::do_run_one (this=this@entry=0x7ffff6837c00, lock=..., this_thread=..., ec=...) at /usr/include/boost/asio/detail/impl/scheduler.ipp:490
+No locals.
+#5  0x0000555555cae211 in boost::asio::detail::scheduler::run (this=0x7ffff6837c00, ec=...) at /usr/include/boost/asio/detail/impl/scheduler.ipp:204
+        this_thread = {<boost::asio::detail::thread_info_base> = {<boost::asio::detail::noncopyable> = {<No data fields>}, reusable_memory_ = {0x0, 0x0, 0x0}, has_pending_exception_ = 0, pending_exception_ = {_M_exception_object = 0x0}}, private_op_queue = {<boost::asio::detail::noncopyable> = {<No data fields>}, front_ = 0x0, back_ = 0x0}, private_outstanding_work = 0}
+        ctx = {<boost::asio::detail::noncopyable> = {<No data fields>}, key_ = 0x7ffff6837c00, value_ = 0x7ffff617c040, next_ = 0x0}
+        lock = {<boost::asio::detail::noncopyable> = {<No data fields>}, mutex_ = @0x7ffff6837c30, locked_ = true}
+        n = 2
+#6  0x0000555555cb674d in boost::asio::io_context::run (this=<optimized out>) at /usr/include/boost/asio/impl/io_context.ipp:63
+        ec = {val_ = 0, failed_ = false, cat_ = 0x555557b3fa98 <boost::system::detail::cat_holder<void>::system_category_instance>}
+        s = <optimized out>
+#7  Acore::Asio::IoContext::run (this=<optimized out>) at /azerothcore/src/common/Asio/IoContext.h:38
+No locals.
+#8  0x00007ffff7227253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#9  0x00007ffff6eafac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#10 0x00007ffff6f418c0 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+
+Thread 1 (Thread 0x7ffff6d32440 (LWP 17) "worldserver"):
+#0  0x00007ffff6eac117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#1  0x00007ffff6eaea41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+No symbol table info available.
+#2  0x0000555556e762eb in std::condition_variable::wait<MapUpdater::wait()::$_0>(std::unique_lock<std::mutex>&, MapUpdater::wait()::$_0) (this=0x555557f05e98 <MapMgr::instance()::instance+464>, __lock=..., __p=...) at /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/condition_variable:103
+No locals.
+#3  MapUpdater::wait (this=0x555557f05da0 <MapMgr::instance()::instance+216>) at /azerothcore/src/server/game/Maps/MapUpdater.cpp:129
+        guard = {_M_device = 0x555557f05e70 <MapMgr::instance()::instance+424>, _M_owns = true}
+#4  0x0000555556e74f24 in MapMgr::Update (this=0x555557f05cc8 <MapMgr::instance()::instance>, diff=14) at /azerothcore/src/server/game/Maps/MapMgr.cpp:279
+        iter = <optimized out>
+#5  0x00005555570f15a1 in World::Update (this=0x7ffff385fa00, diff=14) at /azerothcore/src/server/game/World/World.cpp:1215
+        __ac_metric_stop_watch1214 = {_logger = {<No data fields>}, _startTime = {__d = {__r = 0}}}
+        __ac_metric_stop_watch1092 = {_logger = {<No data fields>}, _startTime = {__d = {__r = 0}}}
+        currentGameTime = {__r = 1764638607}
+#6  0x0000555555ca3db3 in WorldUpdateLoop () at /azerothcore/src/server/apps/worldserver/Main.cpp:596
+        diff = 14
+        minUpdateDiff = 1
+        realCurrTime = 371508
+        realPrevTime = 371494
+        maxCoreStuckTime = 0
+        halfMaxCoreStuckTime = 4294967295
+#7  0x0000555555c9f682 in main (argc=<optimized out>, argv=<optimized out>) at /azerothcore/src/server/apps/worldserver/Main.cpp:399
+        configFile = filesystem::path "/azerothcore/env/dist/etc/worldserver.conf"Python Exception <class 'gdb.error'>: No type named std::filesystem::__cxx11::path::_Cmpt.
+
+        configService = ""
+        vm = <incomplete type>
+        ioContext = warning: RTTI symbol not found for class 'std::_Sp_counted_ptr_inplace<Acore::Asio::IoContext, std::allocator<Acore::Asio::IoContext>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_ptr_inplace<Acore::Asio::IoContext, std::allocator<Acore::Asio::IoContext>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<Acore::Asio::IoContext> (use count 4, weak count 0) = {get() = 0x7ffff6903a70}
+        opensslHandle = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_5, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_5, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<void> (use count 1, weak count 0) = {get() = 0x0}
+        seed = {_bn = 0x7ffff696dee0}
+        pidFile = ""
+        signals = {impl_ = {service_ = 0x7ffff685af00, implementation_ = {queue_ = {<boost::asio::detail::noncopyable> = {<No data fields>}, front_ = 0x7ffff6831c70, back_ = 0x7ffff6831c70}, signals_ = 0x7ffff69c7aa0}, executor_ = {<boost::asio::execution::detail::any_executor_base> = {object_ = {__data = "p:\220\366\377\177\000\000\000\000\000\000\000\000\000", __align = {<No data fields>}}, object_fns_ = 0x555557b401f8 <boost::asio::execution::detail::any_executor_base::object_fns_table<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u> >(std::enable_if<(!is_same<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u>, void>::value)&&(!is_same<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u>, std::shared_ptr<void> >::value), void>::type*)::fns>, target_ = 0x7fffffffe5a8, target_fns_ = 0x555557b40198 <boost::asio::execution::detail::any_executor_base::target_fns_table<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u> >(bool, std::enable_if<!is_same<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u>, void>::value, void>::type*)::fns_with_execute>}, <boost::asio::execution::detail::any_executor_context<boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context &>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > >, boost::asio::execution::detail::supportable_properties<0UL, void (boost::asio::execution::context_as_t<boost::asio::execution_context &>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> >)>::find_context_as_property, void>> = {<No data fields>}, prop_fns_ = 0x555557b40220 <boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context&>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> >, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<0> > >::prop_fns_table<boost::asio::io_context::basic_executor_type<std::allocator<void>, 0u> >()::fns>}}}
+        threadPool = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<std::vector<std::thread, std::allocator<std::thread> >*, main::$_6, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<std::vector<std::thread, std::allocator<std::thread> >*, main::$_6, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<std::vector<std::thread, std::allocator<std::thread> >> (use count 1, weak count 0) = {get() = 0x7ffff61d85e0}
+        sScriptMgrHandle = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_8, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_8, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<void> (use count 1, weak count 0) = {get() = 0x0}
+        dbHandle = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_9, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_9, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<void> (use count 1, weak count 0) = {get() = 0x0}
+        sMetricHandle = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_10, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_10, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<void> (use count 1, weak count 0) = {get() = 0x0}
+        mapManagementHandle = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_11, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_11, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<void> (use count 1, weak count 0) = {get() = 0x0}
+        raAcceptor = std::unique_ptr<AsyncAcceptor> = {get() = 0x0}
+        soapThread = std::shared_ptr<std::thread> (empty) = {get() = 0x0}
+        worldListener = "0.0.0.0"
+        sWorldSocketMgrHandle = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_13, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<decltype(nullptr), main::$_13, std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<void> (use count 1, weak count 0) = {get() = 0x0}
+        freezeDetector = std::shared_ptr<FreezeDetector> (empty) = {get() = 0x0}
+        cliThread = warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<std::thread*, void (*)(std::thread*), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+warning: RTTI symbol not found for class 'std::_Sp_counted_deleter<std::thread*, void (*)(std::thread*), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>'
+std::shared_ptr<std::thread> (use count 1, weak count 0) = {get() = 0x7fff88bef270}
+        numThreads = <optimized out>
+        networkThreads = <optimized out>
+        worldPort = <optimized out>
+Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled off'.
+

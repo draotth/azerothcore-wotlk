@@ -2389,11 +2389,11 @@ MaxGroupXPDistance = 74
 #                     1 - (Rate.XP.Explore)
 #                     1 - (Rate.XP.Pet)
 
-Rate.XP.Kill      = 1
-Rate.XP.Quest     = 1
-Rate.XP.Quest.DF  = 1
-Rate.XP.Explore   = 1
-Rate.XP.Pet       = 1
+Rate.XP.Kill      = 2
+Rate.XP.Quest     = 2
+Rate.XP.Quest.DF  = 2
+Rate.XP.Explore   = 2
+Rate.XP.Pet       = 2
 
 #
 #    Rate.XP.BattlegroundKill...
@@ -2401,12 +2401,12 @@ Rate.XP.Pet       = 1
 #                     Only works if Battleground.GiveXPForKills = 1
 #        Default:     1
 
-Rate.XP.BattlegroundKillAV   = 1
-Rate.XP.BattlegroundKillWSG  = 1
-Rate.XP.BattlegroundKillAB   = 1
-Rate.XP.BattlegroundKillEOTS = 1
-Rate.XP.BattlegroundKillSOTA = 1
-Rate.XP.BattlegroundKillIC   = 1
+Rate.XP.BattlegroundKillAV   = 2
+Rate.XP.BattlegroundKillWSG  = 2
+Rate.XP.BattlegroundKillAB   = 2
+Rate.XP.BattlegroundKillEOTS = 2
+Rate.XP.BattlegroundKillSOTA = 2
+Rate.XP.BattlegroundKillIC   = 2
 
 #
 #    Rate.Pet.LevelXP
@@ -2457,7 +2457,7 @@ HonorPointsAfterDuel = 0
 #        Description: Honor gain rate.
 #        Default:     1
 
-Rate.Honor = 1
+Rate.Honor = 2
 
 #
 #    MaxArenaPoints
@@ -4638,6 +4638,15 @@ Respawn.DynamicRateCreature = 1
 #        Default:     10 - (10 seconds)
 
 Respawn.DynamicMinimumCreature = 10
+
+#
+#    Respawn.DisableInInstances
+#        Description: Prevent natural respawns for dungeon and raid creatures.
+#                     Trash will stay dead until the instance resets or a GM forces a respawn.
+#        Default:     0 - (Disabled)
+#                     1 - (Enabled)
+
+Respawn.DisableInInstances = 0
 
 #
 #    Respawn.DynamicRateGameObject

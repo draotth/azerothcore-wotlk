@@ -2055,6 +2055,23 @@ void Creature::Respawn(bool force)
         }
     }
 
+    if (!force && sWorld->getBoolConfig(CONFIG_RESPAWN_DISABLE_IN_INSTANCES))
+    {
+        if (Map* map = GetMap())
+        {
+            bool isBoss = isWorldBoss() || IsDungeonBoss();
+
+            // Keep trash disabled in instances when the config is set, but still
+            // allow bosses to respawn after wipes.
+            if ((map->IsDungeon() || map->IsRaid()) && !isBoss)
+            {
+                m_respawnTime = GameTime::GetGameTime().count() + YEAR;
+                SaveRespawnTime();
+                return;
+            }
+        }
+    }
+
     ConditionList conditions = sConditionMgr->GetConditionsForNotGroupedEntry(CONDITION_SOURCE_TYPE_CREATURE_RESPAWN, GetEntry());
 
     if (!sConditionMgr->IsObjectMeetToConditions(this, conditions) && !force)
