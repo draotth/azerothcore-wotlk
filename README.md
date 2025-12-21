@@ -152,6 +152,7 @@ Create an account, log in, and test with a fresh character.
 - **AHBot**: tune in `mod_ahbot.conf` (counts, quality distribution, pricing, update cadence).
 
 - **Playerbots**: tune in `playerbots.conf` (difficulty, composition, invite behavior).
+  - XP multiplier (`randomBotXPRate`) applies to all bots, even when grouped with real players; masters with XP turned off still suppress bot XP.
 
 - **Account-wide modules**: configure inclusion/exclusions, scope, and rules in their respective `.conf` files.
 
