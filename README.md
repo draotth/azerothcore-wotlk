@@ -108,7 +108,7 @@ chmod +x tools/ac-prepare-module-confs.sh
 ```
 This copies `modules/**/conf/*.conf.dist` → `conf/modules/*.conf` and into the container’s `/azerothcore/env/dist/etc/modules`.
 
-### 5) Import Module SQL (if not already applied. May not be required since we have the normalize tool)
+### 5) Import Module SQL (if not already applied; may be skipped if the normalize tool already ran)
 Use the provided importer (adjust to your script name if different):
 ```bash
 chmod +x tools/ac-import-module-sql.sh
@@ -187,6 +187,8 @@ Create an account, log in, and test with a fresh character.
 ## Roadmap / Not Implemented Yet
 
 - Armor-proficiency milestone handouts (e.g., mail→plate transitions).
+- **First Aid level sync** (e.g., scale skill with character level after first login).
+- “**Fun glyphs free** / spec glyphs via AH” rule (enforcement/vendor/mail not added).
 - Solo LFG: confirm required patches and full Playerbots interplay.
 - Final AHBot tuning (auction counts, category weighting, price scalars).
 - Transmog vendor placement/cost rules polish.
