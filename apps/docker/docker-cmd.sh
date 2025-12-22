@@ -17,6 +17,30 @@ COMPOSE_DOCKER_CLI_BUILD="1"
 DOCKER_BUILDKIT="1"
 # BUILDKIT_INLINE_CACHE="1"
 
+function remove_old_images() {
+    # Keep the newest image per repo and remove any older ones
+    local repos=(
+        "acore/ac-wotlk-db-import"
+        "acore/ac-wotlk-worldserver"
+        "acore/ac-wotlk-authserver"
+        "acore/ac-wotlk-client-data"
+        "acore/ac-wotlk-tools"
+        "acore/ac-wotlk-dev-server"
+    )
+
+    echo "Cleaning older AzerothCore images (keeping latest per repo)..."
+    for repo in "${repos[@]}"; do
+        mapfile -t images < <(docker image ls "$repo" --format '{{.Repository}}:{{.Tag}}' 2>/dev/null || true)
+        # docker image ls sorts newest first by default; keep the first entry
+        if [[ ${#images[@]} -gt 1 ]]; then
+            for image in "${images[@]:1}"; do
+                docker image rm -f "$image" >/dev/null 2>&1 || \
+                    echo "Warning: could not remove $image"
+            done
+        fi
+    done
+}
+
 function usage () {
     cat <<EOF
 Wrapper for shell scripts around docker
@@ -72,6 +96,7 @@ while [[ $# -gt 0 ]]; do
             set -x
             docker compose build
             set +x
+            remove_old_images
             shift
             ;;
 
@@ -86,6 +111,7 @@ while [[ $# -gt 0 ]]; do
             set -x
             docker compose build --no-cache
             set +x
+            remove_old_images
             shift
             ;;
 
@@ -151,6 +177,7 @@ EOF
             set -x
             docker compose build
             set +x
+            remove_old_images
             shift
             ;;
 
